@@ -33,8 +33,7 @@ public class Config {
                         .put("cluster.name", "myClusterName");
 
         return new ElasticsearchTemplate(transportClient()
-                .settings()
-                .getAsSettings(elasticsearchSettings.build())
+                .settings(elasticsearchSettings.build())
                 .node()
                 .client());
     }
