@@ -3,7 +3,6 @@ package com.yuliia.knowledgebase;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -28,14 +27,7 @@ public class Config {
 
     @Bean
     public ElasticsearchOperations elasticsearchTemplate() throws UnknownHostException {
-        Settings.Builder elasticsearchSettings =
-                Settings.builder()
-                        .put("cluster.name", "myClusterName");
-
-        return new ElasticsearchTemplate(transportClient()
-                .settings(elasticsearchSettings.build())
-                .node()
-                .client());
+        return new ElasticsearchTemplate(transportClient());
     }
 
 }

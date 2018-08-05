@@ -1,5 +1,6 @@
 package com.yuliia.knowledgebase.tag;
 
+
 import com.yuliia.knowledgebase.document.Doc;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
