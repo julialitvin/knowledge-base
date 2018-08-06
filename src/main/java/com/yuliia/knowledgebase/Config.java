@@ -21,6 +21,10 @@ public class Config {
 
     @Bean
     public TransportClient transportClient() throws UnknownHostException {
+        Settings clusterSettings = Settings.builder()
+                .put("cluster.name", "my-application")
+                .build();
+
         return new PreBuiltTransportClient(Settings.EMPTY)
                 .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("localhost"), 9300));
     }
